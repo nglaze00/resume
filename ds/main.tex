@@ -1,0 +1,272 @@
+% todo: 
+%   rules for bolding?
+%   what to emphasize for MS?
+%   projects good?
+
+% msg passing technical term
+% use research -> grad school as negotiation leverage
+% less top margin?
+% tools more than impact for MS
+% (article / code)
+
+
+
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\usepackage{hyperref}
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+
+
+% adjust the page margins
+\usepackage[scale=0.9]{geometry}
+\addtolength{\topmargin}{-.2in}
+\addtolength{\textheight}{.4in}
+
+\usepackage{multicol}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\usepackage{import}
+\usepackage{setspace}
+\usepackage{sectsty}
+% personal data
+\name{\color{black}Nicholas}{Glaze}
+% \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\address{}% \address{6320 Main St., Houston, TX 77005}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+% \phone[mobile]{909-839-3097}                   % optional, remove / comment the line if not wanted
+% \phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+% \email{xpan1@swarthmore.edu}                               % optional, remove / comment the line if not wanted
+% \homepage{shawnpan.me}                         % optional, remove / comment the line if not wanted
+% \extrainfo{}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+  
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #2 }
+  \end{tabular}
+  \ifx&#7&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#7%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvproject}[4][.25em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #3}
+  \end{tabular}
+  \ifx&#4&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvprojectsmall}[4][.25em]{
+%   \vfill\noindent
+  \ifx&#4&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\setlength{\tabcolsep}{12pt}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\vspace*{-26mm}
+
+\begin{center}
+\begin{tabular}{ c c c c }
+  \faGithub\enspace \href{https://github.com/nglaze00}{\underline{nglaze00}} & \faEnvelopeO\enspace nglaze00@gmail.com & \faMobile\enspace (832) 474-4783 \\  
+\end{tabular}
+\end{center}
+
+\section{EDUCATION}
+{\onehalfspacing\customcventry{May 2022}{Bachelor of Science in Electrical \& Computer Engineering | Minor in Data Science}{\scalebox{1.1}{Rice University}}{3.97 / 4.00}{}
+{
+\begin{itemize}[itemsep=4]
+    \item \setstretch{1.0}{\makebox[2.4cm][l]{\textbf{Scholarships}:}Chevron ECE Scholarship (2 recipients, by application) \\\makebox[2.3cm][l]{} Walsh Engineering Scholarship (\textasciitilde 25 recipients, by GPA)}
+    \item \setstretch{1.0}{\makebox[2.3cm][l]{\textbf{Coursework}:} Statistics \& ML for Data Sci., Graph Learning \& Analysis, Algorithmic Robotics, \\\makebox[2.3cm][l]{} Computer Vision, Parallel Programming, Digital Signal Processing I \& II \textbf{(Teaching Assistant)}}
+\end{itemize}
+}}
+%\\\makebox[2.3cm][l]{} ML for Data Sci., Statistics for Data Sci., Linear Algebra, OOP, Parallel Programming
+
+
+\section{SKILLS}
+\begingroup
+    \onehalfspacing\fontsize{10pt}{12pt}\selectfont
+    \begin{itemize}
+        \item \makebox[1.9cm][l]{\textbf{Languages:}} Python \textit{\footnotesize{(Pandas, NumPy, sklearn, TensorFlow, JAX)}}, SQL, C\# \textit{\footnotesize{(Xamarin)}}, Java, MATLAB, JavaScript
+        \item \makebox[1.9cm][l]{\textbf{Software:}} AWS \textit{\footnotesize{(Athena, S3, Sagemaker)}}, Google Cloud Platform, Jupyter, Git, MongoDB
+        \item \makebox[1.9cm][l]{\textbf{Other:}} Agile Scrum, Raspberry Pi, Arduino, TI Launchpad, PCB design, Soldering, \href{https://github.com/nglaze00/Eagle-Scout-Project}{\underline{\smash{Eagle} Scout}}
+        
+\end{itemize}
+\endgroup
+
+
+\section{EXPERIENCE}
+
+\onehalfspacing
+\customcventry{May - August 2021}{Software Engineer Intern}{\scalebox{1.1}{Microsoft}}{Redmond, WA}{}
+{\begin{itemize}
+  \item Implemented payment management features on the \textbf{Azure mobile app} using cross-platform \textbf{Xamarin} (C\#)
+  \begin{itemize}\setstretch{1.2}
+      \item Features enable \textbf{90k weekly visits} to view / add / edit payment methods on Android and iOS 
+      \item Integrated payment method management framework using \textbf{cross-domain communication} and \textbf{JavaScript}
+    %   \item Create mockups, API calls, UI layouts, and unit tests for all features
+    %   \item Unit test features in anticipation of deployment to production
+  \end{itemize}
+\end{itemize}
+}
+\setlength{\parskip}{0.5em}
+{\onehalfspacing\customcventry{June 2020 - May 2021}{Machine Learning Intern}{\scalebox{1.1}{Bill.com}}{Palo Alto, CA}{}
+{\setstretch{1.4}\begin{itemize}
+\setstretch{1.2}
+  \item Leveraged \textbf{hierarchical clustering} to evaluate invoice parsing models, informing \textbf{\$5M / year purchase decision}
+  \begin{itemize}
+    %   \item Analysis directly informed \textbf{\$5M / year purchase decision}
+      \item Unsupervised approach eliminated need for manual training data labeling, \textbf{saving over \$2000}
+  \end{itemize}
+  \item Developed \textbf{tree-based model} to autofill user-entered invoice data, saving users \textbf{\textasciitilde 30s / invoice}
+  \setstretch{1.4}
+%   \item Trained \textbf{BERT NLP model} to link invoices to vendor profiles, saving users \textbf{\textasciitilde15s / invoice}
+  \item Used Python, AWS, SQL, and Agile Scrum regularly; worked throughout summer and academic year
+\end{itemize}
+}}
+
+{\onehalfspacing\customcventry{September 2019 - May 2021}{Undergraduate Deep Learning Researcher}{\scalebox{1.1}{Rice ECE Department}}{Houston, TX}{}
+{\setstretch{1.4}\begin{itemize}
+  \item Developed \textbf{novel graph neural network architecture} for path prediction using higher-order simplicial data
+  \item \textbf{Co-first author} on paper accepted as a \textbf{long talk to ICML 2021} (top 3\% of submissions; \href{https://arxiv.org/abs/2102.10058}{\underline{arXiv link}})
+\end{itemize}
+}}
+
+{\onehalfspacing\customcventry{May - August 2019}{Data Science Intern}{\scalebox{1.1}{Chevron Corporation}}{Houston, TX}{}
+{\begin{itemize}
+  \setstretch{1.2}
+  \item Developed Python library to \textbf{forecast production of 13,000+ wells} in the mid-continental US
+  \begin{itemize}
+      \item Designed statistical model that \textbf{reduced forecasting runtime by 90\%} and \textbf{failure rate by 75\%} 
+      \item One of 5 interns invited to present at Chevron Analytics Showcase
+  \end{itemize}
+  \setstretch{1.4}
+  \item Leveraged \textbf{random forest} and \textbf{PCA} to identify human bias in well data analysis process
+  %\begin{itemize}
+  %   \item Wrote \textbf{Python} script to automate udpating of report statuses (keep?)
+  %\end{itemize}
+\end{itemize}
+}}
+
+\onehalfspacing
+\section{PROJECTS}
+{\begin{itemize}
+    \item \normalsize{\textbf{Deconstructing the Syllabus:}} \small{NLP models for analyzing Texas pedagogy using syllabus text (\textbf{Python, SQL, AWS})}\setstretch{1.0}
+    \begin{itemize}\item Collaborated with \href{https://openstax.org/}{\underline{\smash{OpenStax}}}; won \textbf{Audience Choice Award} at Rice
+        Data Science Showcase \href{https://www.youtube.com/watch?v=JsUe3temhcw}{(\underline{article link})}
+    \end{itemize}
+    \setstretch{1.6}
+    \item \normalsize{\textbf{SchoolTrace:}} \small{App-less contact tracing in schools using graph theory and student schedules \textbf{(Python)}}\setstretch{1.0}
+    \begin{itemize}
+        \item \textbf{Grand prize winner} of Rice University's COVID-19 Design-a-Thon \href{http://news.rice.edu/2020/07/21/contact-tracing-software-takes-top-prize-at-rice-design-a-thon/}{(\underline{article link})}
+    \end{itemize}
+    \setstretch{1.4}
+    \item \normalsize{\textbf{Claim Matching}:} \small{Patent data organization tool; saves 12 hours / week at law firm Slater Matsil, LLP (\textbf{Python})}
+    
+    
+    % \item \normalsize{\textbf{TF2 PUG Bot}:} \small{Discord bot that automates organization of Team Fortress 2 pickup games (\textbf{Java, MySQL})}
+    % \begin{itemize}
+    %     \item Implemented team-balancing algorithm based on player Elo ratings 
+    % \end{itemize}
+    %   \item \normalsize{\textbf{Eagle Scout service project}:} \small{Designed \& installed bulletin board and speaker system at high school tennis courts}
+    %   \begin{itemize}
+    %       \item Led team of \textbf{17 volunteers} over \textbf{109 total hours of work}; raised \textbf{\$500} to cover expenses
+    %   \end{itemize}
+\end{itemize}
+
+}
+\\
+\\
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+%-----       letter       ---------------------------------------------------------
+
+\end{document}
+
+
+%% end of file `template.tex'.
